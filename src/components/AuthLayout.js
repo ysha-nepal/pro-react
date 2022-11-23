@@ -8,7 +8,6 @@ export const AuthLayout = () => {
     const outlet = useOutlet();
 
     const { userPromise } = useLoaderData();
-
     return (
         <Suspense fallback={<LinearProgress />}>
             <Await

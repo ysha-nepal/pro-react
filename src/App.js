@@ -6,12 +6,11 @@ import {
 } from "react-router-dom";
 import { LoginPage } from "./pages/Login";
 import { HomePage } from "./pages/Home";
-import { ProfilePage } from "./pages/Profile";
-import { SettingsPage } from "./pages/Settings";
 import { ProtectedLayout } from "./components/ProtectedLayout";
 import { HomeLayout } from "./components/HomeLayout";
 import "./styles.css";
 import { AuthLayout } from "./components/AuthLayout";
+import { UserEvents } from "./pages/UserEvents";
 
 // ideally this would be an API call to server to get logged in user data
 
@@ -42,9 +41,8 @@ export const router = createBrowserRouter(
                 <Route path="/login" element={<LoginPage />} />
             </Route>
 
-            <Route path="/dashboard" element={<ProtectedLayout />}>
-                <Route path="profile" element={<ProfilePage />} />
-                <Route path="settings" element={<SettingsPage />} />
+            <Route path="/user" element={<ProtectedLayout />}>
+                <Route path="events" element={<UserEvents />} />
             </Route>
         </Route>
     )

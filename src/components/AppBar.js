@@ -40,7 +40,7 @@ export const AppBar = ({ pages }) => {
                         component="div"
                         sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
                     >
-                        React Router Auth
+                        Event Management
                     </Typography>
 
                     <Box
