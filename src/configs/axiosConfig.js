@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "http://test.example.com",
+    baseURL: "http://pro-cms.robust/api/",
 });
 const token = localStorage.getItem("token");
 if (token) {

@@ -11,17 +11,22 @@ export const AuthProvider = ({ children, userData }) => {
     const navigate = useNavigate();
 
     const login = async (data) => {
-        const response = await axiosConfig.get("/login");
-        console.log(response);
-        setUser(data);
-        setToken("Bearer abcned");
-        navigate("/user/events", { replace: true });
+        const res = await axiosConfig.post("login", data);
+        if (res.status == 200) {
+            console.log(res.data.token);
+            setUser(res.data.user);
+            setToken(`Bearer ${res.data.token}`);
+            navigate("/user/events", { replace: true });
+        }
     };
 
-    const logout = () => {
-        setUser(null);
-        setToken(null);
-        navigate("/", { replace: true });
+    const logout = async () => {
+        const res = await axiosConfig.get("logout");
+        if (res.status == 200) {
+            setUser(null);
+            setToken(null);
+            navigate("/", { replace: true });
+        }
     };
 
     const value = useMemo(
